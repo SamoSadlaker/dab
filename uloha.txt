@@ -1,0 +1,38 @@
+Vytvorte jednoduchý blog.
+Prihlasovanie netreba riešiť, funkcionalita bude prístupná stále.
+Články aj komentáre nech sú usporiadané od najnovších
+Aspoň jednoduché css, nech to aspoň trochu vyzerá ...
+Pri predvádzaní mať vytvorené aspoň 3 články s dlhším textom
+Odovzdať video v ktorom všetko predvediete do polnoci nedele 18.5.2025
+Link na odovzdanie: [4B DAA zadanie do 18.5.2025](https://spsjmbb-my.sharepoint.com/:f:/g/personal/jozef_dokoupil_spsjm_sk/EoKTILhMgvRJuro2GEasEBcBzw2CnW3MPG69ve-hDp4Hlw?e=RllSE1)
+
+index.php
+- vo vrchnej časti navigácia - Články(index.php), Pridaj článok(pridaj.php)
+- Zoznam dostupných článkov načítaný z DB
+- Pre každý článok v zozname:
+	- Obrázok (malý)
+	- Nadpis (titulok)
+	- jedna, dve vety z textu článku ukončené odkazom "čítať viac ..."
+- Články sa dajú rozkliknúť
+- V spodnej časti päta s Vašim menom
+- Zmysluplné usporiadanie prvkov 
+
+clanok.php
+- Otvorí sa po kliknutí na článok v zozname(index.php)
+- vo vrchnej časti navigácia - Články(index.php), Pridaj článok(pridaj.php)
+- Nadpis, obrázok a text načítané z DB na základe id(zadané cez URL)
+- V spodnej časti päta s Vašim menom
+- Zmysluplné usporiadanie prvkov 
+komentáre (nie je potrebné, ak Vám stačí 2)
+- Komentáre sú viazané na článok - každý článok má samostatné
+- Pod článkom formulár na pridanie komentára
+- Dve polia - autor a text
+- po odoslaní formulára sa komentár uloží do DB
+- pod formulárom sú zobrazené existujúce komentáre z DB
+
+pridaj.php
+- vo vrchnej časti navigácia - Články(index.php), Pridaj článok(pridaj.php)
+- Formulár s potrebnými údajmi
+- Po odoslaní pridá článok do DB, obrázok stačí ukladať ako cestu(url) 
+- V spodnej časti päta s Vašim menom
+- Zmysluplné usporiadanie prvkov 
