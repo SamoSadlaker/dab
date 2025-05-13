@@ -11,6 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ac->addArticle($title, $image, $text);
     header('Location: index.php');
     exit;
+  } else {
+    $error = 'Prosím, vyplňte všetky povinné polia.';
   }
 }
 ?>
@@ -26,7 +28,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <!-- Navigácia -->
   <?php require_once '_includes/navbar.php'; ?>
 
+  <?php if (isset($error)): ?>
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative max-w-4xl mx-auto mt-4"
+      role="alert">
+      <strong class="font-bold">Chyba!</strong>
+      <span class="block sm:inline"><?php echo $error; ?></span>
+    </div>
+  <?php endif; ?>
   <!-- Formulár -->
+
   <main class="flex-grow">
     <div class="max-w-4xl mx-auto px-4 py-10">
       <div class="bg-white p-8 rounded-xl shadow-md">
@@ -43,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <!-- Obrázok URL -->
           <div>
             <label for="obrazok" class="block text-sm font-medium mb-1">URL obrázka</label>
-            <input type="url" id="image" name="image" class="w-full border border-gray-300 rounded-md px-3 py-2">
+            <input type="url" id="image" name="image" required
+              class="w-full border border-gray-300 rounded-md px-3 py-2">
           </div>
 
           <!-- Text článku -->

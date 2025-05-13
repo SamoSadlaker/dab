@@ -23,6 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cc->addComment($articleId, $name, $comment);
     header("Location: article.php?id=$articleId");
     exit;
+  } else {
+    $error = 'Prosím, vyplňte všetky povinné polia.';
   }
 }
 
@@ -53,16 +55,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </article>
 
       <!-- Formulár na komentár -->
+      <?php if (isset($error)): ?>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative max-w-4xl mx-auto mt-4"
+          role="alert">
+          <strong class="font-bold">Chyba!</strong>
+          <span class="block sm:inline"><?php echo $error; ?></span>
+        </div>
+      <?php endif; ?>
       <section class="bg-white p-6 rounded-xl shadow-md mt-6">
         <h3 class="text-2xl font-semibold mb-4">Pridaj komentár</h3>
         <form method="post" action="" class="space-y-4">
           <div>
             <label for="author" class="block text-sm font-medium">Tvoje meno</label>
-            <input type="text" id="author" name="author" class="w-full border border-gray-300 rounded-md px-3 py-2">
+            <input type="text" id="author" name="author" required
+              class="w-full border border-gray-300 rounded-md px-3 py-2">
           </div>
           <div>
             <label for="comment" class="block text-sm font-medium">Komentár</label>
-            <textarea id="comment" name="comment" rows="4"
+            <textarea id="comment" name="comment" required rows="4"
               class="w-full border border-gray-300 rounded-md px-3 py-2"></textarea>
           </div>
           <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">

@@ -11,12 +11,12 @@ class CommentsController extends DatabaseController
     return $stmt->fetchAll();
   }
 
-  public function addComment($articleId, $name, $comment)
+  public function addComment($articleId, $author, $comment)
   {
-    $query = "INSERT INTO comments (article_id, author, comment) VALUES (:article_id, :name, :comment)";
+    $query = "INSERT INTO comments (article_id, author, comment) VALUES (:article_id, :author, :comment)";
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(':article_id', $articleId, PDO::PARAM_INT);
-    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':author', $author);
     $stmt->bindParam(':comment', $comment);
     return $stmt->execute();
   }
